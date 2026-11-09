@@ -381,6 +381,21 @@ JS TABLE OF CONTENTS
 
 		const handleError = (statusCode, responseText, form, submitButton, originalButtonText) => {
 			let message = 'Oops! There was a problem.';
+			if (responseText) {
+				try {
+					const payload = JSON.parse(responseText);
+					if (payload && typeof payload.message === 'string' && payload.message.trim() !== '') {
+						message = payload.message;
+					} else if (payload && payload.errors) {
+						const firstError = Object.values(payload.errors)[0];
+						if (Array.isArray(firstError) && firstError.length > 0) {
+							message = firstError[0];
+						}
+					}
+				} catch (e) {
+					// Keep default message when response is not JSON.
+				}
+			}
 			if (form.classList.contains('appointment-form')) {
 				message = 'Failed to book the appointment. Please try again.';
 			} else if (form.classList.contains('comment-form')) {

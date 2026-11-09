@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'dashboard' => 'Admin Dashboard',
+    'website_settings' => 'Website Settings',
+    'page_text_editor' => 'Page Text Editor',
+    'image_manager' => 'Page Image Manager',
+    'visual_builder' => 'Visual Builder',
+    'admin_account' => 'Admin Account',
+    'save_settings' => 'Save Settings',
+    'settings_filter_label' => 'Filter Setting Fields',
+    'settings_filter_placeholder' => 'Type keyword: email, phone, social, hours...',
+    'settings_quick_pages' => 'Quick Page Tools',
+    'settings_updated' => 'Website settings updated successfully.',
+    'language_updated' => 'Admin language updated successfully.',
+    'builder_list_title' => 'Visual Builder Pages',
+    'builder_open' => 'Open Builder',
+    'builder_unsaved' => 'You have unsaved changes. Are you sure you want to leave?',
+    'builder_saved' => 'Draft saved successfully.',
+    'builder_published' => 'Page published successfully.',
+    'builder_validation_failed' => 'Validation failed. Please review your inputs.',
+    'builder_save_draft' => 'Save Draft',
+    'builder_publish' => 'Publish',
+    'builder_add_section' => 'Add Section',
+    'builder_unsaved_badge' => 'Unsaved Changes',
+    'builder_saved_badge' => 'All Changes Saved',
+    'media_uploaded' => 'Media uploaded successfully.',
+];

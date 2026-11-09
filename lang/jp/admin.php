@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'dashboard' => '管理ダッシュボード',
+    'website_settings' => 'サイト設定',
+    'page_text_editor' => 'ページテキスト編集',
+    'image_manager' => 'ページ画像管理',
+    'visual_builder' => 'ビジュアルビルダー',
+    'admin_account' => '管理者アカウント',
+    'save_settings' => '設定を保存',
+    'settings_filter_label' => '設定項目を絞り込み',
+    'settings_filter_placeholder' => 'キーワード入力: email, phone, social, hours...',
+    'settings_quick_pages' => 'ページクイックツール',
+    'settings_updated' => 'サイト設定を更新しました。',
+    'language_updated' => '管理画面の言語を更新しました。',
+    'builder_list_title' => 'ビジュアルビルダーページ',
+    'builder_open' => 'ビルダーを開く',
+    'builder_unsaved' => '未保存の変更があります。ページを離れますか？',
+    'builder_saved' => '下書きを保存しました。',
+    'builder_published' => 'ページを公開しました。',
+    'builder_validation_failed' => '入力内容を確認してください。',
+    'builder_save_draft' => '下書きを保存',
+    'builder_publish' => '公開',
+    'builder_add_section' => 'セクション追加',
+    'builder_unsaved_badge' => '未保存の変更あり',
+    'builder_saved_badge' => '保存済み',
+    'media_uploaded' => 'メディアをアップロードしました。',
+];
