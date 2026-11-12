@@ -19,7 +19,9 @@ return [
         'blog-details' => 'Blog Details',
         'gallery' => 'Gallery',
         'pricing' => 'Pricing',
+        'privacy-policy' => 'Privacy Policy',
         'faq' => 'FAQ',
+        'refund-policy' => 'Return and Refund Policy',
         '404' => 'Page Not Found',
     ],
     'nav' => [

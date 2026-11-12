@@ -33,5 +33,12 @@
             <a href="{{ route('admin.builder.index') }}" class="btn btn-primary btn-sm">Open Builder</a>
         </div>
     </div>
+    <div class="col-md-4">
+        <div class="admin-card p-3">
+            <h2 class="h6">{{ __('admin.blog_manager') }}</h2>
+            <p class="text-muted mb-3">Create, edit, publish, and delete blog posts from admin panel.</p>
+            <a href="{{ route('admin.blogs.index') }}" class="btn btn-primary btn-sm">{{ __('admin.blog_list') }}</a>
+        </div>
+    </div>
 </div>
 @endsection

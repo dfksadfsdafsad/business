@@ -19,6 +19,8 @@ return [
         'pricing' => 'pages.pricing',
         'project' => 'pages.project',
         'project-details' => 'pages.project-details',
+        'privacy-policy' => 'pages.privacy-policy',
+        'refund-policy' => 'pages.refund-policy',
         'service' => 'pages.service',
         'service-details' => 'pages.service-details',
         'team' => 'pages.team',

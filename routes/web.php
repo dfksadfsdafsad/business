@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\ImageManagerController;
 use App\Http\Controllers\Admin\AdminLocaleController;
 use App\Http\Controllers\Admin\PageEditorController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\VisualPageBuilderController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ContactMessageController;
+use App\Http\Controllers\Frontend\BlogPageController;
 use Illuminate\Support\Facades\Route;
 
 $pages = config('site.pages');
@@ -71,6 +73,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::delete('/images/{page}/{filename}', [ImageManagerController::class, 'destroy'])
         ->where('filename', '.*')
         ->name('images.destroy');
+
+    Route::resource('blogs', BlogController::class)->except('show');
 });
 
 Route::prefix('{locale}')
@@ -93,8 +97,17 @@ Route::prefix('{locale}')
         Route::post('/contact/send', [ContactMessageController::class, 'send'])
             ->name('localized.contact.send');
 
+        Route::get('/blog-grid', [BlogPageController::class, 'grid'])->name('localized.blog-grid');
+        Route::get('/blog-grid.html', [BlogPageController::class, 'grid']);
+        Route::get('/blog-list', [BlogPageController::class, 'index'])->name('localized.blog-list');
+        Route::get('/blog-list.html', [BlogPageController::class, 'index']);
+        Route::get('/blog/{slug}', [BlogPageController::class, 'show'])->name('localized.blog.show');
+        Route::get('/blog-details/{slug}', [BlogPageController::class, 'show'])->name('localized.blog-details');
+        Route::get('/blog-details', [BlogPageController::class, 'index']);
+        Route::get('/blog-details.html', [BlogPageController::class, 'index']);
+
         foreach ($pages as $slug => $viewName) {
-            if ($slug === 'home-3') {
+            if (in_array($slug, ['home-3', 'blog-grid', 'blog-list', 'blog-details'], true)) {
                 continue;
             }
 

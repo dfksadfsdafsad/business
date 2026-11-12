@@ -12,6 +12,17 @@ class ContactMessageController extends Controller
 {
     public function send(Request $request, string $locale): RedirectResponse|JsonResponse
     {
+        $isJapanese = $locale === 'jp';
+        $receiverNotConfiguredMessage = $isJapanese
+            ? 'お問い合わせ受信用のメールアドレスが設定されていません。'
+            : 'Contact receiver email is not configured.';
+        $sendFailedMessage = $isJapanese
+            ? '現在メッセージを送信できません。SMTP設定をご確認のうえ、もう一度お試しください。'
+            : 'Unable to send message right now. Please check SMTP settings and try again.';
+        $successMessage = $isJapanese
+            ? 'メッセージを送信しました。ありがとうございます。'
+            : 'Your message has been sent successfully.';
+
         $data = $request->validate([
             'name' => ['required', 'string', 'max:120'],
             'email' => ['required', 'email', 'max:255'],
@@ -25,11 +36,11 @@ class ContactMessageController extends Controller
         if ($toAddress === '') {
             if ($request->expectsJson()) {
                 return response()->json([
-                    'message' => 'Contact receiver email is not configured.',
+                    'message' => $receiverNotConfiguredMessage,
                 ], 422);
             }
 
-            return back()->withErrors(['contact' => 'Contact receiver email is not configured.'])->withInput();
+            return back()->withErrors(['contact' => $receiverNotConfiguredMessage])->withInput();
         }
 
         try {
@@ -45,21 +56,21 @@ class ContactMessageController extends Controller
         } catch (Throwable $e) {
             if ($request->expectsJson()) {
                 return response()->json([
-                    'message' => 'Unable to send message right now. Please check SMTP settings and try again.',
+                    'message' => $sendFailedMessage,
                 ], 500);
             }
 
             return back()->withErrors([
-                'contact' => 'Unable to send message right now. Please check SMTP settings and try again.',
+                'contact' => $sendFailedMessage,
             ])->withInput();
         }
 
         if ($request->expectsJson()) {
             return response()->json([
-                'message' => 'Your message has been sent successfully.',
+                'message' => $successMessage,
             ]);
         }
 
-        return back()->with('contact_status', 'Your message has been sent successfully.');
+        return back()->with('contact_status', $successMessage);
     }
 }

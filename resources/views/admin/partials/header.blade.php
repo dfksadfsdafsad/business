@@ -18,6 +18,9 @@
             <a class="nav-link {{ request()->routeIs('admin.builder.*') ? 'active' : '' }}" href="{{ route('admin.builder.index') }}">{{ __('admin.visual_builder') }}</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('admin.blogs.*') ? 'active' : '' }}" href="{{ route('admin.blogs.index') }}">{{ __('admin.blog_manager') }}</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link {{ request()->routeIs('admin.profile.*') ? 'active' : '' }}" href="{{ route('admin.profile.edit') }}">{{ __('admin.admin_account') }}</a>
         </li>
     </ul>

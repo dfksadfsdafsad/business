@@ -19,7 +19,9 @@ return [
         'blog-details' => 'ブログ詳細',
         'gallery' => 'ギャラリー',
         'pricing' => '料金',
+        'privacy-policy' => 'プライバシーポリシー',
         'faq' => 'よくある質問',
+        'refund-policy' => '返品・返金ポリシー',
         '404' => 'ページが見つかりません',
     ],
     'nav' => [
